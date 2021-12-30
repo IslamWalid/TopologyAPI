@@ -1,0 +1,65 @@
+@startuml Topology
+
+package TopologyAPI {
+    class Topology {
+        - ID: String
+        - components: ArrayList<Device>
+        .. Constructors ..
+        + Topology(ID: String, components: ArrayList<Device>)
+        .. Getters and Setters ..
+        + getID(): String
+        + setID(ID: String): void
+        + getComponents(): ArrayList<Device>
+        + setComponents(components: ArrayList<Device>): void
+        + getDevicesWithNetListNode(node: String): ArrayList<Device>
+        + equals(obj: Object): boolean
+        .. Private Methods ..
+        - equalsComponents (components: ArrayList<Device>): boolean
+    }
+
+    class Device {
+        - type: String
+        - ID: String
+        - limit: Limit
+        - netList: HashMap<String, String>
+        .. Constructors ..
+        + Device(type: String, ID: String, limit: Limit, netList: HashMap<String, String>)
+        .. Getters and Setters ..
+        + getType(): String
+        + setType(type: String): void
+        + getID(): String
+        + setID(ID: String)): void
+        + getLimit(): Limit
+        + setLimit(limit: Limit): void
+        + getNetList(): HashMap<String, String>
+        + setNetList(netList: HashMap<String, String>): void
+        .. Public methods..
+        + isConnected(node: String): boolean
+        + equals(obj: Object): boolean
+    }
+
+    class Limit {
+        - type: String
+        - defaultValue: double
+        - minValue: double
+        - maxValue: double
+        .. Constructors ..
+        + Limit(type: String, defaultValue: double, minValue: double, maxValue: double)
+        .. Getters and Setters ..
+        + getDefaultValue(): double
+        + setDefaultValue(defaultValue: double): void
+        + getMinValue(): double
+        + setMinValue(minValue: double): void
+        + getMaxValue(): double
+        + setMaxValue(maxValue: double): void
+        + getType(): String
+        + setType(type: String): void
+        .. Public methods ..
+        + equals(obj: Object): boolean
+    }
+
+    Topology *-- Device
+    Device *-- Limit
+}
+
+@enduml

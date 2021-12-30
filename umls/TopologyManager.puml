@@ -1,0 +1,35 @@
+@startuml TopologyManager
+
+package TopologyAPI {
+    class JsonReadWriteHelper {
+        .. Constructors ..
+        - JsonReadWriteHelper()
+        .. Private static methods ..
+        - {static} fileToString(jsonFilePath: String): String
+        - {static} getDeviceObjectFromDeviceJson(json: String): Device
+        - {static} getNetListObjectFromNetListJson(json: String): HashMap<String, String>
+        - {static} getLimitObjectFromLimitJson(json: String, type: String): Limit
+        - {static} convertTopologyToJsonString(topology: Topology): String
+        - {static} getComponentsMap(deviceArrayList: ArrayList<Device>): ArrayList<Object>
+        .. Public static methods ..
+        + {static} read(jsonFilePath: String): Topology
+        + {static} write(topology: Topology, jsonFilePath: String): void
+    }
+
+    class TopologyManager {
+        .. Constructors ..
+        - TopologyManager()
+        .. Private static methods ..
+        - {static} searchTopologyID(topologyID: String): Topology
+        .. Public static methods ..
+        + {static} readJSON(jsonFilePath: String): void
+        + {static} writeJSON(topologyID: String, jsonFilePath: String): void
+        + {static} queryTopologies(): ArrayList<Topology>
+        + {static} queryDevices(topologyID: String): ArrayList<Device>
+        + {static} queryDevicesWithNetListNode(topologyID: String): ArrayList<Device>
+        + {static} deleteTopology(topologyID: String): void
+    }
+    JsonReadWriteHelper -up[hidden]->TopologyManager
+}
+
+@enduml
