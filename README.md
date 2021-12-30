@@ -28,6 +28,7 @@ Providing the functionality to access, manage and store device topologies, given
 - ***TopologyManager Class:*** Provides the user with the main functionality to manipulate the topologies through its methods.
 - ***JsonReadWriteHelper Class:*** Provides `TopologyManager` with helper methods to manipulate JSON files, its visibility modifier is `default` as it's only needed by `ToplogyManager` to handle JSON files.
 - ***DataBase Class:*** Represents the memory source that the `TopologyManager` uses to store the read topologies, its visibilty modifier is `default` to make it visible only for the classes in **TopologyAPI** package, so it's granteed that the user of this package **cannot** access it.
+
 **Notes:** If the API supports access to database, `DataBase` may contain the methods used to store, retrieve and manipulate topologies from database.
 
 **The UML Diagram of TopologyManager and JsonReadWriteHelper Class:**
