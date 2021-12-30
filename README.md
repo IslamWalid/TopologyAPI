@@ -23,17 +23,17 @@ Providing the functionality to access, manage and store device topologies, given
 **TopologyAPI is modeled by three classes as follows:**
 
 - ***TopologyManager Class:*** Provides the user with the main functionality to manipulate the topologies through its methods.
-- ***JsonReadWriteHelper Class:*** Provides `TopologyManager` with helper methods to manipulate JSON files.
+- ***JsonReadWriteHelper Class:*** Provides `TopologyManager` with helper methods to manipulate JSON files, its visibility modifier is `default` as it's only needed by `ToplogyManager` to handle JSON files.
 - ***DataBase Class:*** Represents the memory source that the `TopologyManager` uses to store the read topologies, its visibilty modifier is `default` to make it visible only for the classes in **TopologyAPI** package, so it's granteed that the user of this package **cannot** access it.
-Note: If the API supports access to data base, `DataBase` may contain the methods used to store, retrieve and manipulate topologies from data base.
+**Notes:** If the API supports access to database, `DataBase` may contain the methods used to store, retrieve and manipulate topologies from database.
 
 **The UML Diagram of TopologyManager and JsonReadWriteHelper Class:**
 
-![picture alt](https://raw.githubusercontent.com/Eslam-Walid/TopologyAPI/master/umls/TopologyManager.png "TopologyManagerUML")
+![picture alt](https://raw.githubusercontent.com/Eslam-Walid/TopologyAPI/master/umls/TopologyManager.png "TopologyManager UML")
 
 **The UML Diagram of DataBase Class:**
 
-![picture alt](https://raw.githubusercontent.com/Eslam-Walid/TopologyAPI/master/umls/DataBase.png "DataBaseUML")
+![picture alt](https://raw.githubusercontent.com/Eslam-Walid/TopologyAPI/master/umls/DataBase.png "DataBase UML")
 
 ## TopologyManager Documentation:
 **readJSON(String jsonFilePath):**
@@ -50,30 +50,30 @@ Note: If the API supports access to data base, `DataBase` may contain the method
     1. `topologyID`: the ID of the topology that wanted to be written into disk as a JSON file.
     2. `filePath`: the path of the file that the topology will be written into.
 - Return: `void`.
-- Throws:
+- Throw:
     1. `IOException` if the path is in wrong.
     2. `TopologyIDNotFoundException` if there's no topology with the given ID in memory.
 
 **queryTopologies():**
-- Description: gives the user a list of topologies currently stored in memory.
+- Description: gives the user a copy of the list of topologies currently stored in memory.
 - Parameters: `void`.
 - Return: `ArrayList<Topology>`.
 
 **queryDevices(String topologyID):**
-- Description: gives the user a list of the components of the given device.
+- Description: gives the user a copy of the list of the components of the given device.
 - Parameters: 
     1. `topologyID`: the ID of the topology to query its components.
 - Return: `ArrayList<Device>`.
-- Throws:
+- Throw:
     1. `TopologyIDNotFoundException` if there's no topology with the given ID in memory.
 
 **queryDevicesWithNetListNode(String topologyID, String node):**
-- Description: gives the user a list of components that are conneted to the given node.
+- Description: gives the user a copy of the list of components that are conneted to the given node.
 - Parameters: 
     1. `topologyID`: the ID of the topology.
     2. `node`: the given node to query components connected to it.
 - Return: `ArrayList<Device>`.
-- Throws:
+- Throw:
     1. `TopologyIDNotFoundException` if there's no topology with the given ID in memory.
 
 **deleteTopology(String topologyID):**
@@ -81,7 +81,7 @@ Note: If the API supports access to data base, `DataBase` may contain the method
 - Parameters: 
     1. `topologyID`: the ID of the topology that will be deleted.
 - Return: `void`.
-- Throws:
+- Throw:
     1. `TopologyIDNotFoundException` if there's no topology with the given ID in memory.
 
 
@@ -94,6 +94,22 @@ Note: If the API supports access to data base, `DataBase` may contain the method
 - ***TopologyIDNotFoundException Class:*** Defines a **user-defined-exception** to be thrown if the user tried to manipulate a topology in memory while it's not actually stored yet.  
 
 **The UML Diagram of Topology, Device, and Limit Class:**
-![picture alt](https://raw.githubusercontent.com/Eslam-Walid/TopologyAPI/master/umls/Topology.png "TopolgoUML")
+![picture alt](https://raw.githubusercontent.com/Eslam-Walid/TopologyAPI/master/umls/Topology.png "Topology UML")
 
-Note: The UML Diagram of these classes shows the composition relation between them.
+**Note:** The UML Diagram of these classes shows the **composition** relation between them.
+
+## Usage
+- Install the [Used Technologies](#Used-Technologies).
+- Import `TopologyAPI` package in your program, ex:
+```
+import TopologyAPI.*;
+```
+- Use the methods provided in `TopologyManager` according to the [TopologyManager Documentation](#TopologyManager-Documentation).
+
+## Testing
+- Unit tests is provided by `TestTopologyAPI` class which is defined [here](https://github.com/Eslam-Walid/TopologyAPI/blob/master/src/test/java/TestTopologyAPI/TestTopologyAPI.java).
+- `TestTopologyAPI` contains test methods for all `TopologyManager` methods.
+- You can run the whole `TestTopologyAPI` class or run individual methods.
+- Output of [Junit5](https://junit.org/junit5/) testing process from [IntelliJ](https://www.jetbrains.com/idea/):
+
+![picture alt](https://raw.githubusercontent.com/Eslam-Walid/TopologyAPI/master/testingOutput.png "Testing Output")
