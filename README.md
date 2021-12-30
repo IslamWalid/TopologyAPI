@@ -11,13 +11,16 @@ Providing the functionality to access, manage and store device topologies, given
     5. Query the components that are conneted to each other through a given node in a certain topology.
     6. Delete topology from memory.
 
+## Why JAVA is used as the programming language
+- Java is **Class based, Object-Oriented Language**. So it's a good choice to be used to model the API in an appropriate way.
+- Java is supported by powerful **serialization and seserialization** JSON parsers like [GSON]((https://sites.google.com/site/gson/gson-user-guide)), [Jackson](https://github.com/FasterXML/jackson) and [JSON.simple](https://github.com/fangyidong/json-simple).
+
 ## Used Technologies
 - [IntelliJ](https://www.jetbrains.com/idea/) as an IDE.
 - [Maven](https://maven.apache.org/) as a building tool.
 - [Gson](https://sites.google.com/site/gson/gson-user-guide) to parse JSON files.
 - [Junit5](https://junit.org/junit5/) to perform unit tests.
 - [Qodana](https://www.jetbrains.com/qodana/), the built-in code analysis tool for [IntelliJ](https://www.jetbrains.com/idea/).
-
 
 ## TopologyAPI Documentation
 **TopologyAPI is modeled by three classes as follows:**
