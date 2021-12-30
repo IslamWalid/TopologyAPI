@@ -32,7 +32,7 @@ public final class JsonReadWriteHelper {
     }
 
     public static void write(Topology topology, String path) throws IOException {
-        String jsonString = convertTopologyToJsonString(topology);
+        String jsonString = getJsonString(topology);
         new File(path);
         BufferedWriter writer = new BufferedWriter(new FileWriter(path));
         writer.write(jsonString);
@@ -81,7 +81,7 @@ public final class JsonReadWriteHelper {
         return new Limit(type, defaultValue, minValue, maxValue);
     }
 
-    private static String convertTopologyToJsonString(Topology topology) {
+    private static String getJsonString(Topology topology) {
         HashMap<String, Object> topologyMap = new HashMap<>();
         topologyMap.put("id", topology.getID());
         topologyMap.put("components", getComponentsMap(topology.getComponents()));

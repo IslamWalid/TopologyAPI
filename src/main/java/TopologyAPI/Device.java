@@ -1,7 +1,6 @@
 package TopologyAPI;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class Device {
     private String type;
@@ -48,7 +47,7 @@ public class Device {
         this.netList = new HashMap<>(netList);
     }
 
-    public boolean isConnected(String node) {
+    public boolean isConnectedToNode(String node) {
         return netList.containsValue(node);
     }
 

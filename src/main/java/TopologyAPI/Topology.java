@@ -31,7 +31,7 @@ public class Topology {
         ArrayList<Device> devices = new ArrayList<>();
 
         for (var device: components) {
-            if (device.isConnected(node)) {
+            if (device.isConnectedToNode(node)) {
                 devices.add(device);
             }
         }
