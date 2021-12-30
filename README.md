@@ -33,8 +33,7 @@ Note: If the API supports access to data base, `DataBase` may contain the method
 ![picture alt](https://raw.githubusercontent.com/Eslam-Walid/TopologyAPI/master/umls/DataBase.png "DataBaseUML")
 
 ## TopologyManager Documentation:
-**Read a JSON file from disk into memory:**
-readJSON(String jsonFilePath):
+**readJSON(String jsonFilePath):**
 - Description: read topology from the given JSON file.
 - Parameters:
     1. jsonFilePath: the path of the given JSON file.
@@ -42,7 +41,7 @@ readJSON(String jsonFilePath):
 - Throw: 
     1. `IOException` if the path is wrong or no such a file in this path.
 
-writeJSON(String topologyID, String filePath):
+**writeJSON(String topologyID, String filePath):**
 - Description: writes the given topology in a JSON file.
 - Parameters: 
     1. topologyID: the ID of the topology that wanted to be written into disk as a JSON file.
@@ -52,29 +51,29 @@ writeJSON(String topologyID, String filePath):
     1. `IOException` if the path is in wrong.
     2. `TopologyIDNotFoundException` if there's no topology with the given ID in memory.
 
-queryTopologies():
+**queryTopologies():**
 - Description: gives the user a list of topologies currently stored in memory.
 - Parameters: void
-- Return: ArrayList<Topology>.
+- Return: ArrayList< Topology >.
 
-queryDevices(String topologyID):
+**queryDevices(String topologyID):**
 - Description: gives the user a list of the components of the given device.
 - Parameters: 
     1. topologyID: the ID of the topology to query its components.
-- Return: ArrayList<Device>.
+- Return: ArrayList< Device >.
 - Throws:
     1. `TopologyIDNotFoundException` if there's no topology with the given ID in memory.
 
-queryDevicesWithNetListNode(String topologyID, String node):
+**queryDevicesWithNetListNode(String topologyID, String node):**
 - Description: gives the user a list of components that are conneted to the given node.
 - Parameters: 
     1. topologyID: the ID of the topology.
     2. node: the given node to query components connected to it.
-- Return: ArrayList<Device>.
+- Return: ArrayList< Device >.
 - Throws:
     1. `TopologyIDNotFoundException` if there's no topology with the given ID in memory.
 
-deleteTopology(String topologyID):
+**deleteTopology(String topologyID):**
 - Description: delete the given topology from the memory.
 - Parameters: 
     1. topologyID: the ID of the topology that will be deleted.
