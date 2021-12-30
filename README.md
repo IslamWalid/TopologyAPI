@@ -21,6 +21,7 @@ Providing the functionality to access, manage and store device topologies, given
 
 ## TopologyAPI Documentation
 **TopologyAPI is modeled by three classes as follows:**
+
 ***TopologyManager Class:*** Provides the user with the main functionality to manipulate the topologies through its methods.
 ***JsonReadWriteHelper Class:*** Provides `TopologyManager` with helper methods to manipulate JSON files.
 ***DataBase Class:*** Represents the memory source that the `TopologyManager` uses to store the read topologies, its visibilty modifier is `default` to make it visible only for the classes in **TopologyAPI** package, so it's granteed that the user of this package **cannot** access it.
@@ -86,6 +87,7 @@ Note: If the API supports access to data base, `DataBase` may contain the method
 
 ## Classes Documentation
 **The topologies stored in memory is modeled with the following classes:**
+
 - ***Topology Class:*** It models the topology as an ID and an array of devices, each element in this array is of type `Device`.
 - ***Device Class:*** It models the device as an ID, type, characteristics and net list.
 - ***Limit Class:*** It models the characteristics of each device as a default, minimum, maximum value of (resistance, voltage, etc...).
