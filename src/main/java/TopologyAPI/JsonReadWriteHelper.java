@@ -13,12 +13,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public final class JsonReadWriteHelper {
+final class JsonReadWriteHelper {
     private JsonReadWriteHelper() {
 
     }
 
-    public static Topology read(String path) throws IOException {
+    static Topology read(String path) throws IOException {
         String json = fileToString(path);
         Map<String, Object> jsonTopology = new Gson().fromJson(json, Map.class);
         String topologyID = (String) jsonTopology.get("id");
@@ -31,7 +31,7 @@ public final class JsonReadWriteHelper {
         return new Topology(topologyID, objectDevices);
     }
 
-    public static void write(Topology topology, String path) throws IOException {
+    static void write(Topology topology, String path) throws IOException {
         String jsonString = getJsonString(topology);
         new File(path);
         BufferedWriter writer = new BufferedWriter(new FileWriter(path));
