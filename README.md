@@ -27,9 +27,11 @@ Providing the functionality to access, manage and store device topologies, given
 Note: If the API supports access to data base, `DataBase` may contain the methods used to store, retrieve and manipulate topologies from data base.
 
 **The UML Diagram of TopologyManager and JsonReadWriteHelper Class:**
+
 ![picture alt](https://raw.githubusercontent.com/Eslam-Walid/TopologyAPI/master/umls/TopologyManager.png "TopologyManagerUML")
 
 **The UML Diagram of DataBase Class:**
+
 ![picture alt](https://raw.githubusercontent.com/Eslam-Walid/TopologyAPI/master/umls/DataBase.png "DataBaseUML")
 
 ## TopologyManager Documentation:
@@ -90,5 +92,6 @@ Note: If the API supports access to data base, `DataBase` may contain the method
 - ***TopologyIDNotFoundException Class:*** Defines a **user-defined-exception** to be thrown if the user tried to manipulate a topology in memory while it's not actually stored yet.  
 
 **The UML Diagram of Topology, Device, and Limit Class:**
-Note: The UML Diagram of these classes shows the composition relation between them.
 ![picture alt](https://raw.githubusercontent.com/Eslam-Walid/TopologyAPI/master/umls/Topology.png "TopolgoUML")
+
+Note: The UML Diagram of these classes shows the composition relation between them.
