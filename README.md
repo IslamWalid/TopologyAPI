@@ -13,7 +13,7 @@ Providing the functionality to access, manage and store device topologies, given
 
 ## Why JAVA is used as the programming language
 - Java is **Class based, Object-Oriented Language**. So it's a good choice to be used to model the API in an appropriate way.
-- Java is supported by powerful **serialization and seserialization** JSON parsers like [GSON](https://sites.google.com/site/gson/gson-user-guide), [Jackson](https://github.com/FasterXML/jackson) and [JSON.simple](https://github.com/fangyidong/json-simple).
+- Java is supported by powerful **Serialization and Deserialization** JSON parsers like [GSON](https://sites.google.com/site/gson/gson-user-guide), [Jackson](https://github.com/FasterXML/jackson) and [JSON.simple](https://github.com/fangyidong/json-simple).
 
 ## Used Technologies
 - [IntelliJ](https://www.jetbrains.com/idea/) as an IDE.
